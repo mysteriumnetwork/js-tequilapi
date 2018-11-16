@@ -1,5 +1,5 @@
 # Mysterium Tequilapi
-a library to control mysterium_client and myst from [nysteriumnetwork/node](https://github.com/MysteriumNetwork/node)
+a library to control mysterium_client and myst from [mnysteriumnetwork/node](https://github.com/mysteriumnetwork/node)
 
 ## Installation
 ```bash

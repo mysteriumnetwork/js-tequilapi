@@ -176,6 +176,41 @@ describe('HttpTequilapiClient', () => {
     })
   })
 
+  describe('connectionLocation()', () => {
+    it('returns response', async () => {
+      const response = {
+        ip: '0.0.0.0',
+        asn: 8764,
+        isp: 'Telia Lietuva, AB',
+        continent: 'EU',
+        country: 'LT',
+        city: 'Vilnius',
+        node_type: 'residential'
+      }
+
+      mock.onGet('connection/location').reply(200, response)
+
+      const stats = await api.connectionLocation()
+
+      const dto = parseConsumerLocationDTO(response)
+      expect(stats.ip).toEqual(dto.ip)
+      expect(stats.asn).toEqual(dto.asn)
+      expect(stats.isp).toEqual(dto.isp)
+      expect(stats.continent).toEqual(dto.continent)
+      expect(stats.country).toEqual(dto.country)
+      expect(stats.city).toEqual(dto.city)
+      expect(stats.node_type).toEqual(dto.node_type)
+      expect(stats).toEqual(dto)
+    })
+
+    it('handles error', () => {
+      mock.onGet('connection/location').reply(500)
+
+      expect(api.connectionLocation())
+        .rejects.toHaveProperty('message', 'Request failed with status code 500 (path="connection/location")')
+    })
+  })
+
   describe('findProposals()', () => {
     it('returns proposal DTOs', async () => {
       const response = {

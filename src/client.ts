@@ -40,6 +40,7 @@ export interface TequilapiClient {
   natStatus (): Promise<NatStatusDTO>,
   stop (): Promise<void>,
   location (timeout?: number): Promise<ConsumerLocationDTO>,
+  connectionLocation (timeout?: number): Promise<ConsumerLocationDTO>,
 
   identitiesList (): Promise<IdentityDTO[]>,
   identityCreate (passphrase: string): Promise<IdentityDTO>,

@@ -75,6 +75,14 @@ export class HttpTequilapiClient implements TequilapiClient {
     return parseConsumerLocationDTO(response)
   }
 
+  public async connectionLocation (timeout?: number): Promise<ConsumerLocationDTO> {
+    const response = await this.http.get('connection/location', undefined, timeout)
+    if (!response) {
+      throw new Error('Connection location response body is missing')
+    }
+    return parseConsumerLocationDTO(response)
+  }
+
   public async identitiesList (): Promise<IdentityDTO[]> {
     const response = await this.http.get('identities')
     if (!response) {

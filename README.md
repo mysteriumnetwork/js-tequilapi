@@ -1,4 +1,6 @@
-# Mysterium Tequilapi
+# :no_entry: [DEPRECATED] Mysterium Tequilapi
+
+:no_entry: Replace this library with [mysterium-vpn-js](https://github.com/mysteriumnetwork/mysterium-vpn-js)
 
 [![npm version](https://badge.fury.io/js/mysterium-tequilapi.svg)](https://badge.fury.io/js/mysterium-tequilapi)
 
